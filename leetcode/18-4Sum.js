@@ -68,7 +68,10 @@ Test Case:
 */
 
 var fourSumOptimized = function(nums, target) {
-    nums = nums.sort();
+    var sortByNumber = function(a, b) {
+        return a - b;
+    }
+    nums = nums.sort(sortByNumber);
     var map = {};
     var resultMap = {};
     var result = [];
@@ -94,7 +97,7 @@ var fourSumOptimized = function(nums, target) {
                         indices.push(i, j);
                         indices.sort();
                         resultMap[indices] = resultMap[indices]
-                                             || [nums[indices[0]], nums[indices[1]], nums[indices[2]], nums[indices[3]]].sort();
+                                             || [nums[indices[0]], nums[indices[1]], nums[indices[2]], nums[indices[3]]].sort(sortByNumber);
                     }
                 }
             }
